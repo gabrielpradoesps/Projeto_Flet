@@ -57,7 +57,7 @@ def main(page: ft.Page):
     slot2 = ft.Container(width=70, height=100, left=300, top=0, border=ft.Border.all(1))
     slots = [slot0, slot1, slot2]
 
-    # cartas
+    # cartas com imagens
     card1 = ft.GestureDetector(
         mouse_cursor=ft.MouseCursor.MOVE,
         drag_interval=5,
@@ -66,7 +66,15 @@ def main(page: ft.Page):
         on_pan_end=drop,
         left=0,
         top=0,
-        content=ft.Container(bgcolor=ft.Colors.GREEN, width=70, height=100),
+        content=ft.Container(
+            image=ft.DecorationImage(
+                src="card1.png",
+                fit="cover",
+            ),
+            width=70,
+            height=100,
+            border_radius=5,
+        ),
     )
     card2 = ft.GestureDetector(
         mouse_cursor=ft.MouseCursor.MOVE,
@@ -76,7 +84,15 @@ def main(page: ft.Page):
         on_pan_end=drop,
         left=100,
         top=0,
-        content=ft.Container(bgcolor=ft.Colors.YELLOW, width=70, height=100),
+        content=ft.Container(
+            image=ft.DecorationImage(
+                src="card2.png",
+                fit="cover",
+            ),
+            width=70,
+            height=100,
+            border_radius=5,
+        ),
     )
 
     controls = [slot0, slot1, slot2, card1, card2]
@@ -87,4 +103,4 @@ def main(page: ft.Page):
     place(card2, slot0)
 
 
-ft.run(main)
+ft.run(main, assets_dir="assets")
